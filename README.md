@@ -2,4 +2,4 @@
 
 [![Build Status](https://travis-ci.org/enmy/epl2-label.svg?branch=master)](https://travis-ci.org/enmy/epl2-label)
 
-Libreria de etiquetas para imprimir en impresore zebra con epl2
+Libreria de etiquetas para imprimir en impresora zebra con epl2
