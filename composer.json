@@ -1,0 +1,28 @@
+{
+    "name": "enmy/epl2-label",
+    "description": "Libreria de etiquetas para imprimir en impresore zebra con epl2",
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Epl2Label\\": "src/Epl2Label"
+        }
+    },
+    "authors": [
+        {
+            "name": "Enmy Perez",
+            "email": "enmyperez@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/enmy/epl2"
+        }
+    ],
+    "require": {
+        "enmy/epl2": "^1.1"
+    }
+}
