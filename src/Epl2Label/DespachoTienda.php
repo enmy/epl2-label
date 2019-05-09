@@ -20,6 +20,9 @@ class DespachoTienda implements CommandInterface
     /** @var string */
     private $id_referencia;
 
+    /** @var int Puntero de linea */
+    private $line;
+
     /** @var string */
     private $nombre;
 
@@ -30,7 +33,7 @@ class DespachoTienda implements CommandInterface
     private $tienda;
 
     private $config = [
-        'width' => 800,
+        'width' => 790,
         'margin' => [
             'left' => 25,
             'top' => 5,
@@ -72,6 +75,7 @@ class DespachoTienda implements CommandInterface
     protected function setCommands()
     {
         $this->commands = new CommandCollection;
+        $this->line = 0;
         $this->addData();
     }
 
@@ -87,65 +91,70 @@ class DespachoTienda implements CommandInterface
     protected function addRut()
     {
         $this->commands->add(
-            new TextLines(
-                new Point($this->config['margin']['left'], $this->config['margin']['top']),
+            $text = new TextLines(
+                new Point($this->config['margin']['left'], $this->config['margin']['top'] + (60 * $this->line)),
                 $this->config['font']['xl'],
                 $this->rut,
                 $this->config['width']
             )
         );
+        $this->line += count($text->getCommand());
         return $this;
     }
 
     protected function addNombre()
     {
         $this->commands->add(
-            new TextLines(
-                new Point($this->config['margin']['left'], $this->config['margin']['top'] + 60),
+            $text = new TextLines(
+                new Point($this->config['margin']['left'], $this->config['margin']['top'] + (60 * $this->line)),
                 $this->config['font']['xl'],
                 $this->nombre,
                 $this->config['width']
             )
         );
+        $this->line += count($text->getCommand());
         return $this;
     }
 
     protected function addTienda()
     {
         $this->commands->add(
-            new TextLines(
-                new Point($this->config['margin']['left'], $this->config['margin']['top'] + 60 * 2),
+            $text = new TextLines(
+                new Point($this->config['margin']['left'], $this->config['margin']['top'] + (60 * $this->line)),
                 $this->config['font']['xl'],
                 $this->tienda,
                 $this->config['width']
             )
         );
+        $this->line += count($text->getCommand());
         return $this;
     }
 
     protected function addPedido()
     {
         $this->commands->add(
-            new TextLines(
-                new Point($this->config['margin']['left'], $this->config['margin']['top'] + 60 * 3),
+            $text = new TextLines(
+                new Point($this->config['margin']['left'], $this->config['margin']['top'] + (60 * $this->line)),
                 $this->config['font']['xl'],
                 "WEB-{$this->id_pedido}",
                 $this->config['width']
             )
         );
+        $this->line += count($text->getCommand());
         return $this;
     }
 
     protected function addReferecia()
     {
         $this->commands->add(
-            new TextLines(
-                new Point($this->config['margin']['left'], $this->config['margin']['top'] + 60 * 4),
+            $text = new TextLines(
+                new Point($this->config['margin']['left'], $this->config['margin']['top'] + (60 * $this->line)),
                 $this->config['font']['l'],
                 "REF-{$this->id_referencia}",
                 $this->config['width']
             )
         );
+        $this->line += count($text->getCommand());
         return $this;
     }
 }
